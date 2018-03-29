@@ -1,0 +1,72 @@
+<!-- Author: Daryll Osis
+Date: March 28, 2018
+Description: This website is made to show how to pull data from a form 
+             and append it to an existing table and show the updated table dynamically. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Table</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+            $("#submitclick").click(function(){
+                var first_name = $("#firstName").val();
+                var last_name = $("#lastName").val();
+                var email_address = $("#emailAddress").val();
+                var contact_number = $("#contactNumber").val();
+
+                var newHTML = "<tr><td>" + first_name + "</td><td>" + last_name + "</td><td>" + email_address + "</td><td>" + contact_number + "</td></tr>"
+                console.log(newHTML);
+                
+                $('#user_table').append(newHTML);
+                return false;
+            });
+        }); //end of document ready function
+    </script>
+        
+</head>
+<body>
+    <div class="wrapper">
+        <div class="userTable">
+            <table id="user_table">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email Address</th>
+                        <th>Contact #</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div class="addUser">
+            <h1>Add User</h1>
+            <div class="userForm">
+                <form class="formUser">
+                    <div>
+                        <label for="firstName">First Name:</label> <input type="text" id="firstName" name="firstName">
+                    </div>
+                    <div>
+                        <label for="lastName">Last Name:</label> <input type="text" id="lastName" name="lastName">
+                    </div>
+                    <div>
+                        <label for="emailAddress">Email Address:</label> <input type="text" id="emailAddress" name="emailAddress">
+                    </div>
+                    <div>
+                        <label for="contactNumber">Contact No:</label> <input type="text" id="contactNumber" name="contactNumber">
+                    </div>
+                        <input type="submit" value="Add User" id="submitclick" />
+                </form>
+            </div>
+
+        </div>
+     </div>      <!-- end of wrapper div -->
+    
+</body>
+</html>
